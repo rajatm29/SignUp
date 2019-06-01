@@ -58,6 +58,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInputFields()
     }
     
     fileprivate func setupInputFields() {
