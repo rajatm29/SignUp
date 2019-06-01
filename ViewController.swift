@@ -38,8 +38,42 @@ class ViewController: UIViewController {
         return tf
     }()
     
+    let signUpButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.setTitle("Sign Up", for: .normal)
+        
+        button.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        
+        
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        return button
+        
+        
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    fileprivate func setupInputFields() {
+        
+       
+        
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton])
+        
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        
+        view.addSubview(stackView)
+        
+        stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingBottom: 0, paddingRight: 40, paddingLeft: 40, width: 0, height: 200)
+        
+        
     }
 }
